@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git 'https://github.com/venugopalsgnew/kubernetes-training.git'
+            }
+        }
+
+        stage('Deploy nginx on to k8 Cluster') {
+            environment {
+                KUBECONFIG = credentials('KUBE_CONFIG')
+            }
+            steps {
+                withKubeConfig(credentialsId: 'KUBE_CONFIG', serverUrl: 'https://your-kubernetes-api-url') {
+                    sh '''
+                        kubectl apply -f deployment.yaml
+                    '''
+                }
+            }
+        }
+    }
+}
