@@ -1,10 +1,10 @@
 # kubernetes-training
 
-**Install Required Plugins
+**Install Required Plugins**
 
   Kubernetes Continuous Deploy plugin
 
-**Configure Kubernetes Cloud 
+**Configure Kubernetes Cloud** 
 
 Navigate to "Manage Jenkins" > "Configure System".
 Scroll down to the "Cloud" section and click on "Add a new cloud" > "Kubernetes".
