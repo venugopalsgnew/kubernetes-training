@@ -16,7 +16,9 @@ new pods / kill the existing pods
 
 
 kubectl get pods
+
 kubectl top pods
+
 kubectl get hpa
 
 kubectl exec -it nginx-deployment1-68dcf48475-cghpw -- /bin/bash
