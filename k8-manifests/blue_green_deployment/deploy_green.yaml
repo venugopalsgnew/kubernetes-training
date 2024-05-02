@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-green
+      color: green
+  template:
+    metadata:
+      labels:
+        app: nginx-green
+        color: green 
+    spec:
+      containers:
+      - name: nginx
+        image: venugopal87/custom-nginx-green
+        ports:
+        - containerPort: 80
+

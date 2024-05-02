@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: custom-nginx-container
+        image: nginx
+        volumeMounts:
+        - name: myebsvolume2
+          mountPath: /prodapplication2
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: myebsvolume2
+        persistentVolumeClaim:
+          claimName: myebsvol-pv-claim2
+
+

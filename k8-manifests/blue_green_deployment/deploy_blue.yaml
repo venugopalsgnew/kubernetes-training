@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-blue
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: nginx-blue
+        color: blue
+    spec:
+      containers:
+      - name: nginx
+        image: venugopal87/custom-nginx-blue
+        ports:
+        - containerPort: 80
+
