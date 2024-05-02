@@ -1,6 +1,11 @@
 Run kubectl get events -- Where we can check initially we would have deployed few replication based on our requirement, later based on the load, hpa would act accordingly whether to bring up
 new pods / kill the existing pods
 
+![HPA-1](https://github.com/venugopalsgnew/kubernetes-training/blob/master/k8-manifests/Images/HPA-1.jpeg)
+
+
+
+![HPA-2](https://github.com/venugopalsgnew/kubernetes-training/blob/master/k8-manifests/Images/HPA-2.jpeg)
 
 
 
