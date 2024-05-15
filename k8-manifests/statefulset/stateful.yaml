@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+
+kind: StatefulSet
+
+metadata:
+
+  name: postgres-db
+
+spec:
+
+  serviceName: headless-svc
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: postgres-db
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: postgres-db
+
+    spec:
+
+      containers:
+
+      - name: postgres-container
+
+        image: postgres:latest  # Adjust the image and tag as needed
+
+        ports:
+
+        - containerPort: 5432  # PostgreSQL default port
+        env:
+        - name: POSTGRES_DB
+
+          value: postgresdb  # Replace with your desired database name
+
+        - name: POSTGRES_USER
+
+          value: postgres  # Replace with your desired username
+
+        - name: POSTGRES_PASSWORD
+
+          value: postgres  # Replace with your desired password
+
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata    
+        volumeMounts:
+
+        - name: data-volume
+
+          mountPath: /var/lib/postgresql/data  # Adjust the path as needed
+
+  volumeClaimTemplates:
+
+  - metadata:
+
+      name: data-volume
+
+    spec:
+
+      accessModes: [ "ReadWriteOnce" ]
+
+      storageClassName: ebs-sc  # Adjust the storage class as needed
+
+      resources:
+
+        requests:
+
+          storage: 2Gi  # Adjust the storage size as needed
