@@ -28,7 +28,7 @@ kubectl create secret generic aws-secret \
 ```
 
 ##Example
-kubectl create secret generic ^Cs-secret --namespace kube-system --from-literal "key_id=AKIAUF3522PL2N3" --from-literal "access_key=jJbi0uwLr+Q2bu7p8t"
+kubectl create secret generic aws-secret --namespace kube-system --from-literal "key_id=AKIAUF3522PL2N3" --from-literal "access_key=jJbi0uwLr+Q2bu7p8t"
 
 
 
