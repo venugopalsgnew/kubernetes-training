@@ -1,6 +1,6 @@
 
 
-##Create an index.html file on to your worker node where your pods gets deployed with the below commands 
+## Create an index.html file on to your worker node where your pods gets deployed with the below commands 
 
 ```
 sudo mkdir /mnt/data
