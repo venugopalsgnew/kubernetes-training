@@ -24,10 +24,12 @@ ReadWriteOnce (RWO):
 
 Description: The volume can be mounted as read-write by a single node.
 Use Case: This mode is typically used for scenarios where only one pod on one node requires write access to the volume at any given time. It's suitable for applications like databases that require exclusive access to the storage.
+
 ReadOnlyMany (ROX):
 
 Description: The volume can be mounted as read-only by many nodes.
 Use Case: This mode is useful for situations where multiple pods across different nodes need read access to the same data but no write access. It is ideal for static content that does not change frequently, like configuration files or shared libraries.
+
 ReadWriteMany (RWX):
 
 Description: The volume can be mounted as read-write by many nodes.
