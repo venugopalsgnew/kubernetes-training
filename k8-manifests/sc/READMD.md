@@ -37,6 +37,16 @@ kubectl create secret generic aws-secret --namespace kube-system --from-literal 
 helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
 helm repo update
 ```
+- To check what helm repos have been added:
+```
+helm repo ls
+```
+
+- To check what charts presents within helm repo
+  
+```
+ helm search repo aws-ebs-csi-driver
+```
 
 - Deploy the AWS EBS CSI Driver using the following command:
 ```
