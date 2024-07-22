@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: services-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: services
+  template:
+    metadata:
+      labels:
+        app: services
+    spec:
+      containers:
+      - name: services
+        image: venugopal87/nginx-multipath-demo:v1 
+        ports:
+        - containerPort: 80
+
