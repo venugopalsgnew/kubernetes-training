@@ -19,3 +19,6 @@ spec:
             echo "Helper container running: $(date)";
             sleep 10;
           done
+
+
+#kubectl exec -it multi-container-pod-no-volumes -c helper-container -- /bin/sh - curl localhost -- should load nginx default webpage
