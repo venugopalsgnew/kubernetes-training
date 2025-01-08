@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-frontend-access
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: mysql   # Apply the policy to pods with the label `app: mysql`
+  policyTypes:
+    - Ingress      # Apply rules for incoming traffic
+  ingress:
+    - from:        # Allow traffic only from pods with the label `app: backend`
+        - podSelector:
+            matchLabels:
+              app: backend
